@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react'
 import Item from './Item';
+import Filter from './Filter';
 
 const List = ({ data }) => {
 
@@ -11,6 +12,7 @@ const List = ({ data }) => {
     }
     return (
         <div>
+            <Filter filter={filter}/>
             {data.map((item, index) => {
                 // return <Item key={index} item={item} handleFilter={handleFilter} />
                 
