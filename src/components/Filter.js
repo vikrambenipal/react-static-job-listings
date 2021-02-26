@@ -15,6 +15,10 @@ const Row = styled.div`
 `
 const Container = styled(Row)`
     border: ${props => props.len > 0 ? "2px solid black" : ""};
+    
+    .clear {
+        cursor: pointer;
+    }
 `
 const RowWrap = styled.div`
         display: flex;
@@ -22,24 +26,41 @@ const RowWrap = styled.div`
         flex-wrap: wrap;
 `
 const Tag = styled(RowWrap)`
-    
+    p {
+        color: #5CA5A5;
+        background-color: #EFF6F6;
+        padding: 8px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        
+    }
+    img {
+        background-color: #5CA5A5;
+        cursor: pointer;
+    }
 `
 
 
-const Filter = ({ filter }) => {
-    console.log(filter);
+const Filter = ({ filter, handleRemove, handleRemoveAll }) => {
+    const handleRemoveTag = (e) => {
+        handleRemove(e);
+    }
+    const handleRemoveAllTags = (e) => {
+        handleRemoveAll(e)
+    }
     return (
         <Container  len={filter.length}>
             <Tag>
             {filter.map((tag, index) => {
-                return <div key={index}>
+                return <Row className="item" key={index}>
                             <p>{tag}</p>
-                            <img src={removeIcon} alt=""></img>
-                        </div>      
+                            <img onClick={handleRemoveTag} src={removeIcon} alt=""></img>
+                        </Row>      
             })} 
             </Tag>
             <div>
-                {filter.length > 0 && <p className="clear">Clear</p>}
+                {filter.length > 0 && <p onClick={handleRemoveAllTags}className="clear">Clear</p>}
             </div>
         </Container>
         

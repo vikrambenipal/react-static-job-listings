@@ -10,12 +10,22 @@ const List = ({ data }) => {
         e.preventDefault();
         setFilter([...filter, e.target.outerText]);
     }
+
+    const handleRemove = (e) => {
+        e.preventDefault();
+        const i = filter.indexOf(e.target.previousSibling.outerText);
+        setFilter([...filter.slice(0,i), ...filter.slice(i+1)]);
+        console.log(filter);
+    }
+
+    const handleRemoveAll = (e) => {
+        setFilter([...filter.slice(0,0), ...filter.slice(0,0)]);
+    }
+
     return (
         <div>
-            <Filter filter={filter}/>
+            <Filter filter={filter} handleRemove={handleRemove} handleRemoveAll={handleRemoveAll}/>
             {data.map((item, index) => {
-                // return <Item key={index} item={item} handleFilter={handleFilter} />
-                
                 const merged = item.languages.concat(item.tools).concat(item.role).concat(item.level);
                 let result = false;
                 if(filter.length === 0){
