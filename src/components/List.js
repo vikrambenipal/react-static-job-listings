@@ -8,7 +8,9 @@ const List = ({ data }) => {
 
     const handleFilter = (e) => {
         e.preventDefault();
-        setFilter([...filter, e.target.outerText]);
+        if(!filter.includes(e.target.outerText)){
+            setFilter([...filter, e.target.outerText]);
+        }
     }
 
     const handleRemove = (e) => {
