@@ -6,7 +6,7 @@ import data from './data.json';
 function App() {
   return (
     <div className="App">
-      <Filter />
+      <Filter data={data}/>
       <List data={data}/>
     </div>
   );

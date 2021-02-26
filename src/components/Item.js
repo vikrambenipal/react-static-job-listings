@@ -2,51 +2,57 @@ import React from 'react';
 import styled from'styled-components';
 
 const Box = styled.div`
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 85%;
-    margin: 30px auto;
-    .position {
-        padding-left: 15px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    ul {
-        padding: 0px;
-        margin: 0px;
-        padding-left: 5px
-    }
-`
-const Row = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 85%;
+        margin: 30px auto;
+        .position {
+            padding-left: 15px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        ul {
+            padding: 0px;
+            margin: 0px;
+            padding-left: 5px
+        }
+        border-left: ${props => props.new ? "8px solid #5CA5A5" : ""};
     `
-const Title = styled(Row)`
-    h3 {
-        padding-left: 15px;
+    const Row = styled.div`
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        `
+    const Title = styled(Row)`
+        h3 {
+            padding-left: 15px;
+        }
+    `
+    const JobInfo = styled(Row)`
+        p {
+            padding-left: 15px;
+            
+        }
+    `
+    const Filter = styled(Row)`
+        p {
+            color: #5CA5A5;
+            background-color: #EFF6F6;
+            padding: 8px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    `
+
+const Item = ({ item, handleFilter }) => {
+    const handleChildFilter = (e) => {
+        handleFilter(e);
     }
-`
-const JobInfo = styled(Row)`
-    p {
-        padding-left: 15px;
-        
-    }
-`
-const Filter = styled(Row)`
-    p {
-        padding: 8px;
-        margin-left: 20px;
-        margin-bottom: 15px;
-        margin-top: 10px;
-        background-color: #5CA5A5;
-        cursor: pointer;
-    }
-`
-const Item = ({ item }) => {
     return (
         <div>
-            <Box>
+            <Box new={item.new}>
                 {/* <img src={require(item.logo)} alt=""></img> */}
                 <Title>
                     <h3 className="company">{item.company}</h3>
@@ -70,10 +76,13 @@ const Item = ({ item }) => {
                 {/* Filter */}
                 <ul>
                     <Filter>
-                        <p>{item.role}</p>
-                        <p>{item.level}</p>
+                        <p onClick={handleChildFilter}>{item.role}</p>
+                        <p onClick={handleChildFilter}>{item.level}</p>
                         {item.languages.map((language, index) => {
-                            return <p key={index}>{language}</p>
+                            return <p onClick={handleChildFilter} key={index}>{language}</p>
+                        })}
+                        {item.tools.map((tool, index) => {
+                            return <p onClick={handleChildFilter} key={index}>{tool}</p>
                         })}
                     </Filter>
                 </ul>
