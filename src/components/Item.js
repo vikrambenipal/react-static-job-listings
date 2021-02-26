@@ -22,7 +22,7 @@ const Box = styled.div`
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        `
+    `
     const Title = styled(Row)`
         h3 {
             padding-left: 15px;
@@ -34,7 +34,7 @@ const Box = styled.div`
             
         }
     `
-    const Filter = styled(Row)`
+    const Tag = styled(Row)`
         p {
             color: #5CA5A5;
             background-color: #EFF6F6;
@@ -75,7 +75,7 @@ const Item = ({ item, handleFilter }) => {
                 <hr></hr>
                 {/* Filter */}
                 <ul>
-                    <Filter>
+                    <Tag>
                         <p onClick={handleChildFilter}>{item.role}</p>
                         <p onClick={handleChildFilter}>{item.level}</p>
                         {item.languages.map((language, index) => {
@@ -84,7 +84,7 @@ const Item = ({ item, handleFilter }) => {
                         {item.tools.map((tool, index) => {
                             return <p onClick={handleChildFilter} key={index}>{tool}</p>
                         })}
-                    </Filter>
+                    </Tag>
                 </ul>
             </Box>
         </div>

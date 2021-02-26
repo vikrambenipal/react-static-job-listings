@@ -7,22 +7,43 @@ import removeIcon from './images/icon-remove.svg';
 // c1: row of tags with flex-wrap
 // c2: p tag vertically centered
 
-const Container = styled.div`
+const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`
+const Container = styled(Row)`
     border: ${props => props.len > 0 ? "2px solid black" : ""};
 `
+const RowWrap = styled.div`
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+`
+const Tag = styled(RowWrap)`
+    
+`
+
 
 const Filter = ({ filter }) => {
     console.log(filter);
     return (
-        <Container len={filter.length}>
+        <Container  len={filter.length}>
+            <Tag>
             {filter.map((tag, index) => {
                 return <div key={index}>
                             <p>{tag}</p>
                             <img src={removeIcon} alt=""></img>
                         </div>      
             })} 
-            {filter.length > 0 && <p>Clear</p>}
+            </Tag>
+            <div>
+                {filter.length > 0 && <p className="clear">Clear</p>}
+            </div>
         </Container>
+        
+        
     )
 }
 
