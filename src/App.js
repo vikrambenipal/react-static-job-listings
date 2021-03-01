@@ -1,6 +1,7 @@
 import React from 'react';
 import List from './components/List';
 import data from './data.json';
+import './App.css';
 
 function App() {
   return (

@@ -1,6 +1,15 @@
 import React, { useState, Fragment } from 'react'
 import Item from './Item';
 import Filter from './Filter';
+import styled from'styled-components';
+import bg from './images/bg-header-mobile.svg';
+
+const Header = styled.div`
+    background-image: url(${bg});
+    background-repeat: no-repeat;
+    background-color: #63BABA;
+    height: 150px;
+`
 
 const List = ({ data }) => {
 
@@ -26,7 +35,9 @@ const List = ({ data }) => {
 
     return (
         <div>
+            <Header></Header>
             <Filter filter={filter} handleRemove={handleRemove} handleRemoveAll={handleRemoveAll}/>
+
             {data.map((item, index) => {
                 const merged = item.languages.concat(item.tools).concat(item.role).concat(item.level);
                 let result = false;

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from'styled-components';
 
 const Box = styled.div`
-        border: 1px solid black;
         border-radius: 5px;
+        box-shadow: 0px 15px 20px -5px 	rgb(13,113,130, 0.15);
         width: 85%;
         margin: 30px auto;
         .position {
@@ -17,6 +17,9 @@ const Box = styled.div`
             padding-left: 5px
         }
         border-left: ${props => props.new ? "8px solid #5CA5A5" : ""};
+        hr {
+            width: 90%;
+        }
     `
     const Row = styled.div`
         display: flex;
@@ -53,7 +56,7 @@ const Item = ({ item, handleFilter }) => {
     return (
         <div>
             <Box new={item.new}>
-                {/* <img src={require(item.logo)} alt=""></img> */}
+                {/* <img src={item.logo} alt=""></img> */}
                 <Title>
                     <h3 className="company">{item.company}</h3>
                     {item.new && 
