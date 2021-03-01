@@ -10,7 +10,10 @@ const Header = styled.div`
     background-color: #63BABA;
     height: 150px;
 `
-
+const ListContainer = styled.div`
+    background-color: #EFFAFA;
+    margin-top: -25px;
+`
 const List = ({ data }) => {
 
     const [filter, setFilter] = useState([]);
@@ -37,7 +40,7 @@ const List = ({ data }) => {
         <div>
             <Header></Header>
             <Filter filter={filter} handleRemove={handleRemove} handleRemoveAll={handleRemoveAll}/>
-
+            
             {data.map((item, index) => {
                 const merged = item.languages.concat(item.tools).concat(item.role).concat(item.level);
                 let result = false;

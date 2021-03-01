@@ -16,6 +16,7 @@ const Container = styled(Row)`
     border: ${props => props.len > 0 ? "0px solid black" : ""};
     border-radius: 5px;
     box-shadow: 0px 15px 20px -5px rgb(13,113,130, 0.15);
+    font-family: spartan-bold;
     width: 80%;
     margin: 0 auto;
     margin-top: -20px;
@@ -24,6 +25,7 @@ const Container = styled(Row)`
     .clear {
         cursor: pointer;
         margin-right: 25px;
+        color: #7C8F8F;
     }
 `
 const RowWrap = styled.div`

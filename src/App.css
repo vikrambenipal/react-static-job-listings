@@ -1,3 +1,12 @@
 body {
     margin: 0;
+    background-color: #EFFAFA;
+}
+@font-face {
+    font-family: 'spartan-medium';
+    src: url(./components/Spartan/static/Spartan-Regular.ttf);
+}
+@font-face {
+    font-family: 'spartan-bold';
+    src: url(./components/Spartan/static/Spartan-Bold.ttf);
 }
