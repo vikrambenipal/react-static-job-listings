@@ -2,6 +2,7 @@
 ## Built using React.js and Styled Components
 
 This is a static job posting site that can be filtered by category/skill if you click on any of the tags on a posting. The filters can then be cleared. 
+Check it out here: https://luxury-dieffenbachia-b91fee.netlify.app/
 
 ## Learnings
 I thought it was a fun challenge to represent JSON data as a card component that can be interacted with by the user. It was also a challenge applying multiple filters to all of the job postings. 
