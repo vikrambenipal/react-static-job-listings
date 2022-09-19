@@ -10,10 +10,6 @@ const Header = styled.div`
     background-color: #63BABA;
     height: 150px;
 `
-const ListContainer = styled.div`
-    background-color: #EFFAFA;
-    margin-top: -25px;
-`
 const List = ({ data }) => {
 
     const [filter, setFilter] = useState([]);
